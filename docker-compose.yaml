@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  sqlalchemy_models:
+    build: .
+    container_name: sqlalchemy_models
+    env_file: .env
+    tty: true
+    entrypoint: bash
+    volumes:
+      - .:/sqlalchemy_models
