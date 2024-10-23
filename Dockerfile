@@ -1,4 +1,4 @@
-FROM python:3.10.6 as builder
+FROM python:3.12.6 AS builder
 
 ENV PATH="/root/.local/bin:${PATH}"
 
@@ -13,12 +13,12 @@ WORKDIR /venv/
 
 RUN poetry install
 
-FROM python:3.10.6
+FROM python:3.12.6
 
 LABEL version="0.1.0"
 LABEL author="Chris Lee"
 LABEL email="clee@codegen.com"
-LABEL description="Cut from cookiecutter-poetry-py3-10"
+LABEL description=""
 
 ENV PYTHONPATH=/sqlalchemy_models PATH=/venv/.venv/bin:/sqlalchemy_models/bin:/sqlalchemy_models/scripts:${PATH}
 COPY --from=builder /venv /venv
