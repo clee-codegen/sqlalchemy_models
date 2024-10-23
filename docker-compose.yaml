@@ -7,3 +7,10 @@ services:
     entrypoint: bash
     volumes:
       - .:/sqlalchemy_models
+  db:
+    image: postgres:15.5
+    container_name: db
+    environment:
+      POSTGRES_DB: db
+      POSTGRES_USER: dbuser
+      POSTGRES_PASSWORD: development
